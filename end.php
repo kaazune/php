@@ -3,35 +3,41 @@
 ini_set('display_errors',"On");
 
 include("config.php");
-		
-	if ($_SERVER["REQUEST_METHOD"] == "POST") {
-			if(!isset($_POST['name']) || $_POST['name']===""){
-				echo "nameが入力されていません";
-			}else if(!isset($_POST['vote']) ||  $_POST['vote']===""){
-				echo "voteが入力されていません";
-			}else{
-				$name=$_POST['name'];
-				$vote=$_POST['vote'];
-				$stmt=$mysqli->prepare("INSERT INTO vote_db(name,vote) VALUES(?,?)");
+
+	$num=$_POST['num'];
+	$title_id=$_POST['title_id'];
+	
+	
+		if($_SERVER["REQUEST_METHOD"] == "POST") {
 			
-			if($stmt){
-				//定義する要素数を増やすたびにsを増やす↓
-				$stmt->bind_param('ss',$name,$vote);
-		
-				if($stmt->execute()){
-					echo "登録しました";
+			$x=1;
+			while($x<=$num){
+				$sentaku_name=$_POST["sentaku_name".$x];
+				echo $sentaku_name;
+				
+				if((!isset($_POST["sentaku_name".$x]) )|| ($_POST["sentaku_name".$x]==="")){
+					echo "選択肢".$x."が入力されていません";
 				}else{
+					$sentaku_name=$_POST["sentaku_name".$x];
+					$stmt=$mysqli->prepare("INSERT INTO sentaku(id,sentaku_name) VALUES(?,?)");
+				if($stmt){
+					//定義する要素数を増やすたびにsを増やす↓
+					$stmt->bind_param('ss',$title_id,$sentaku_name);
+		
+					if(!$stmt->execute()){
 					echo $stmt->errno . $stmt->error;
 				}
-				$stmt->close();
-			}else{
-				echo $mysqli->errno . $mysqli->error;
+					$stmt->close();
+				}else{
+					echo $mysqli->errno . $mysqli->error;
+				}
 			}
+			$x++;
 		}
 	}
 
-?>
 
+?>
 
 <!DOCTYPE html>
 <html>
@@ -41,8 +47,13 @@ include("config.php");
 	</head>
 	
 	<body>
+	<form action="viewvote.php" method="">
+	<a href="viewvote.php">作成した投票をみる</a>
+	<br />
+	<a href="listvote.php">他の投票を見る</a>
+	<br />
+	<a href="post.php">他の投票を作成する</a>
 	
-	<a herf="">
 
 	</body>
 	

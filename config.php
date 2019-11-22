@@ -5,7 +5,7 @@ header("Content-type: text/html; charset=utf-8");
 $host = "localhost";
 $username = "root";
 $password = "root";
-$dbname = "vote";
+$dbname = "sanrio";
 
 $mysqli = new mysqli($host, $username, $password, $dbname);
 $mysqli->set_charset("utf8");

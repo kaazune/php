@@ -13,17 +13,20 @@ ini_set('display_errors',"On");
 	
 	<body>
 	
-		<h2>入力</h2>
+		<h2>title入力</h2>
 	
-		<form action="end.php" method="post">
+		<form action="post2.php" method="post">
 		<table>
-			<tr><th>name</th>
-			<td><input type="text" name="name" placeholder="サンリオ人気投票" required></td></tr>
+			<tr><th>投票のタイトル</th>
+			<td><input type="text" name="title" placeholder="20文字まで" required></td></tr>
 			
-			<tr><th>vote</th>
-			<td><input type="text" name="vote"></td></tr>
+			<tr><th>選択肢数</th>
+			<td><input type="text" name="num" placeholder="2~5" required></td></tr>
+			
+			<tr><th>投票の概要</th>
+			<td><textarea name="detail" placeholder="100文字まで"></textarea></td></tr>
 		</table>
-		<input type="submit" name="submit" value="次へ" >
+		<input type="submit" name="submit_title" value="次へ" >
 		</form>
 		
 	</body>
