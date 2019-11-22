@@ -2,21 +2,21 @@
 include("config.php");
 
 // POSTされたときに下記を実行
-if( $_POST['id'] ) {
+if( $_POST['sentaku_id'] ) {
 
-	$id = $_POST['id'];
-	$id = $mysqli->real_escape_string($id);
+	$sentaku_id = $_POST['sentaku_id'];
+	$sentaku_id = $mysqli->real_escape_string($sentaku_id);
 
     if ( !isset($_COOKIE['voted']) ) {
         setcookie("voted", "voted", time()+3);
         
         // 投票数をアップデートする
-	    $sql = "UPDATE sanrio_vote SET vote = vote+1  WHERE id='$id'";
+	    $sql = "UPDATE sentaku SET vote = vote+1  WHERE sentaku_id='$sentaku_id'";
 	    $mysqli->query( $sql);
     }
 
 	// 投票数を取得する
-	$result = $mysqli->query("SELECT vote FROM sanrio_vote WHERE id='$id'");
+	$result = $mysqli->query("SELECT vote FROM sentaku WHERE sentaku_id='$sentaku_id'");
 	$row=$result->fetch_assoc();
 
 	$vote_value=$row['vote'];

@@ -47,8 +47,11 @@ include("config.php");
 	</head>
 	
 	<body>
-	<form action="viewvote.php" method="">
-	<a href="viewvote.php">作成した投票をみる</a>
+	<form action="viewvote.php" method="post">
+	<input type='hidden' name='title_id' value='<?php echo $title_id; ?> ' >
+	<input type="submit" name="submit_name" value="次へ" >
+	<!--<a href="viewvote.php">作成した投票をみる</a> -->
+	</form>
 	<br />
 	<a href="listvote.php">他の投票を見る</a>
 	<br />
