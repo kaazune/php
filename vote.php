@@ -11,12 +11,12 @@ if( $_POST['id'] ) {
         setcookie("voted", "voted", time()+3);
         
         // 投票数をアップデートする
-	    $sql = "UPDATE sanrio_vote SET vote = vote+1  WHERE id='$id'";
+	    $sql = "UPDATE sentaku SET vote = vote+1  WHERE id='$id'";
 	    $mysqli->query( $sql);
     }
 
 	// 投票数を取得する
-	$result = $mysqli->query("SELECT vote FROM sanrio_vote WHERE id='$id'");
+	$result = $mysqli->query("SELECT vote FROM sentaku WHERE id='$id'");
 	$row=$result->fetch_assoc();
 
 	$vote_value=$row['vote'];
