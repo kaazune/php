@@ -9,8 +9,8 @@ $title_id=$_POST['title_id'];
 $sql_title = "SELECT * FROM title WHERE id=$title_id";
 $result_title = $mysqli->query($sql_title);
 foreach($result_title as $val) {
-    $title= $val['title'];
-    $detail=$val['detail'];
+    $title_view= $val['title'];
+    $detail_view=$val['detail'];
 }
 
 ?>
@@ -26,10 +26,10 @@ foreach($result_title as $val) {
 
 <table>
 			<tr><th>投票のタイトル</th>
-			<td><?php echo $title; ?></td></tr>
+			<td><?php echo $title_view; ?></td></tr>
 			
 			<tr><th>投票の概要</th>
-			<td><?php echo $detail; ?></td></tr>
+			<td><?php echo $detail_view; ?></td></tr>
 </table>
 
 <?php

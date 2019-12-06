@@ -13,7 +13,7 @@ include("config.php");
 			$x=1;
 			while($x<=$num){
 				$sentaku_name=$_POST["sentaku_name".$x];
-				echo $sentaku_name;
+				//echo $sentaku_name;
 				
 				if((!isset($_POST["sentaku_name".$x]) )|| ($_POST["sentaku_name".$x]==="")){
 					echo "選択肢".$x."が入力されていません";

@@ -2,10 +2,10 @@
 ini_set('display_errors',"On");
 header("Content-type: text/html; charset=utf-8");
 
-$host = "mysql140.phy.lolipop.lan";
-$username = "LAA1119419";
+$host = "localhost";
+$username = "root";
 $password = "root";
-$dbname = "LAA1119419-sanrio";
+$dbname = "sanrio";
 
 $mysqli = new mysqli($host, $username, $password, $dbname);
 $mysqli->set_charset("utf8");
