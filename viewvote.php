@@ -68,7 +68,7 @@ $(function() {
 			var sentaku_name = $(this).attr("name");
 
 			// POST用のデータ準備：id=をつけないと、vote.phpの$_POST['id']で取得できない
-			var voteData = 'sentaku_id='+ sentaku_id;
+			var voteData = 'id='+ sentaku_id;
 
 			// span内の投票数を書き換える
 			var thisButton = $(this).prev('span');
