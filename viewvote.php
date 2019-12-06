@@ -92,9 +92,9 @@ $(function() {
 });
 </script>
 
-<a href="listvote.php">投票一欄</a>
-	<br />
-<a href="index.php">TOPに戻る</a>
+<a href="listvote.php">投票一覧</a>
+	<br>
+<a href="index.html">TOPに戻る</a>
 
 </body>
 </html>
