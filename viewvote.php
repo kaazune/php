@@ -5,6 +5,14 @@ ini_set('display_errors', "On");
 ob_start();
 include('config.php');
 
+$title_id=$_POST['title_id'];
+$sql_title = "SELECT * FROM title WHERE id=$title_id";
+$result_title = $mysqli->query($sql_title);
+foreach($result_title as $val) {
+    $title_view= $val['title'];
+    $detail_view=$val['detail'];
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -16,24 +24,30 @@ include('config.php');
 </head>
 <body>
 
-<?php
+<table>
+			<tr><th>投票のタイトル</th>
+			<td><?php echo $title_view; ?></td></tr>
+			
+			<tr><th>投票の概要</th>
+			<td><?php echo $detail_view; ?></td></tr>
+</table>
 
-$query = "SELECT * FROM sentaku WHERE id=1";
+<?php
+$query = "SELECT * FROM sentaku WHERE id=$title_id";
 $result = $mysqli->query($query);
 
 while ($row = $result->fetch_assoc()) {
 	$sentaku_id = $row['sentaku_id'];
-	$id = $row['id'];
 	$sentaku_name = $row['sentaku_name'];
 	$vote = $row['vote'];
-   // $img_path = $row['img_path'];
 ?>
 
+
+
 <p>
-	//<img src="img/<?php echo $img_path; ?>">
 	<?php echo $sentaku_name; ?>：
 	<span id="num"><?php echo $vote; ?></span>
-	<button id="<?php echo $id; ?>" name="<?php echo $sentaku_name; ?>">投票する</button>
+	<button id="<?php echo $sentaku_id; ?>" name="<?php echo $sentaku_name; ?>">投票する</button>
 </p>
 
 <?php
@@ -48,13 +62,13 @@ $(function() {
 	   $("button").click(function() {
 
 			// buttonのIDを取得する
-			var id = $(this).attr("id");
+			var sentaku_id = $(this).attr("id");
 
 			// buttonのname（キャラクター名）を取得する
-			var character_name = $(this).attr("name");
+			var sentaku_name = $(this).attr("name");
 
 			// POST用のデータ準備：id=をつけないと、vote.phpの$_POST['id']で取得できない
-			var voteData = 'id='+ id;
+			var voteData = 'sentaku_id='+ sentaku_id;
 
 			// span内の投票数を書き換える
 			var thisButton = $(this).prev('span');
@@ -77,5 +91,10 @@ $(function() {
 
 });
 </script>
+
+<a href="listvote.php">投票一欄</a>
+	<br />
+<a href="index.php">TOPに戻る</a>
+
 </body>
 </html>
