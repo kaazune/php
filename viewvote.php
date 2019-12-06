@@ -6,6 +6,12 @@ ob_start();
 include('config.php');
 
 $title_id=$_POST['title_id'];
+$sql_title = "SELECT * FROM title WHERE id=$title_id";
+$result_title = $mysqli->query($sql_title);
+foreach($result_title as $val) {
+    $title= $val['title'];
+    $detail=$val['detail'];
+}
 
 ?>
 <!DOCTYPE html>
@@ -18,8 +24,15 @@ $title_id=$_POST['title_id'];
 </head>
 <body>
 
-<?php
+<table>
+			<tr><th>投票のタイトル</th>
+			<td><?php echo $title; ?></td></tr>
+			
+			<tr><th>投票の概要</th>
+			<td><?php echo $detail; ?></td></tr>
+</table>
 
+<?php
 $query = "SELECT * FROM sentaku WHERE id=$title_id";
 $result = $mysqli->query($query);
 
@@ -78,5 +91,10 @@ $(function() {
 
 });
 </script>
+
+<a href="listvote.php">投票一欄</a>
+	<br />
+<a href="index.php">TOPに戻る</a>
+
 </body>
 </html>
