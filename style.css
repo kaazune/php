@@ -1,0 +1,242 @@
+body {
+    margin: 0;
+    color: #F75F6F;
+    background-color: #ffefe7;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+    color: #F75F6F;
+}
+
+ul {
+    list-style: none;
+}
+
+.center {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+
+html:before,
+html:after,
+body:before,
+body:after {
+  content: "";
+  background: #F75F6F;
+  position: fixed;
+  display: block;
+  z-index: 1;
+}
+
+html:before {
+  height: 10px; 
+  width: 100vw;
+  left: 0;
+  top: 0;
+}
+
+html:after {
+  width: 10px;
+  height: 100vh;
+  right: 0;
+  top: 0;
+}
+
+body:before {
+  height: 10px;
+  width: 100vw;
+  bottom: 0;
+  left: 0;
+}
+
+body:after {
+  width: 10px;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
+
+
+/* header */
+
+header {
+    position: fixed;
+    display: flex;
+    line-height: 80px;
+    justify-content: space-between;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+
+.heada {
+    display: flex;
+}
+
+.heada img {
+    width: 400px;
+    margin: 20px;
+}
+
+.headb {
+    display: flex;
+    margin: 0 50px 0 0;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    letter-spacing: 1px;
+    line-height: 30px;
+    margin-top: 30px;
+}
+
+.headb li {
+    display: inline-block;
+    font-size: 25px;
+    margin: 0 20px;
+}
+
+.headb li::after {
+  border-bottom: solid 3px #F75F6F;
+  bottom: 0;
+  content: "";
+  display: block;
+  transition: all .3s ease;
+  -webkit-transition: all .3s ease;
+  width: 0;
+}
+
+.headb li:hover::after {
+  width: 100%;
+}
+
+
+/* wrap */
+
+.wrapa, .wrapb {
+    text-align: center;
+    font-family: "Sawarabi Gothic";
+}
+
+.topimg {
+    width: 50vw;
+    text-align: center;
+    margin-top: 15vh;
+}
+
+h2 {
+    font-size: 25px;
+    margin: 0;
+}
+
+.in {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background-color: #F75F6F;
+}
+
+.wrapa p {
+    font-size: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+.wrapb a {
+    margin: 30px;
+}
+
+.button {
+    padding: 5px 9px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0) 50%, #F75F6F 50%);
+    background-position: 0 0;
+    background-size: 200% auto;
+    transition: .3s;
+    display: inline-block;
+    background-color: white;
+    font-size: 20px;
+    color: #F75F6F;
+    line-height: 1;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+}
+
+.button:hover{
+    background-position: -100% 0;
+    color: white;
+}
+
+
+
+
+
+
+/* post.php, post2.php */
+.step1, .step2 {
+    margin: 0 0 50px 0;
+}
+
+.step1 img, .step2 img {
+    display: block;
+    margin: 0 auto;
+    width: 150px;
+
+}
+
+form {
+    display: grid;
+    grid-template-columns: 180px 180px 180px;
+    grid-gap: 20px;
+    text-align: right;
+    margin: 0 auto;
+    justify-content: center;
+    font-family: "Sawarabi Gothic";
+}
+
+.parent {
+    width: 50%;
+    display: block;
+    margin: 0 auto;
+}
+
+input[type='text'] {
+    width: 366px;
+    padding: 5px;
+    border: 2px solid #F75F6F;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    grid-column-start: 2;
+    grid-column-end: 4;
+}
+
+textarea {
+    width: 366px;
+    height: 80px;
+    padding: 5px;
+    border: 2px solid #F75F6F;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    grid-column-start: 2;
+    grid-column-end: 4;
+}
+
+input[type="submit"] {
+    border: none;
+    text-decoration: none;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    width: 100px;
+    font-weight: 600;
+    margin: 20px 40px;
+}
+
+
+
+
