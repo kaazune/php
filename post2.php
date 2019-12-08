@@ -33,38 +33,35 @@ include("config.php");
 	
 ?>
 
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>投票システム</title>
-	</head>
-	
-	<body>
-	
-		<h2>sentaku入力</h2>
-	  
+
+<?php
+    define("title", "step2");
+    require_once($_SERVER['DOCUMENT_ROOT'] . '/header.php');
+?>
+<div class="center">
+    <div class="step2">
+        <img src="img/step2.png">
+        <p></p>
+    </div>
+
 	<?php 
 		$sum=1;
 		while($sum<=$num):
 		?>
 		<form action="end.php" method="post">
-		<table>
 		
-			<tr><th>選択肢名<?php echo $sum ?> </th>
+            <label>選択肢名<?php echo $sum ?>つ目</label>
 			<input type='hidden' name='num' value='<?php echo $num; ?>' >
 			<input type='hidden' name='title_id' value=' <?php echo $title_id; ?> ' >
-			<td><input type="text" name="<?php echo "sentaku_name".$sum; ?>"placeholder="20文字まで" required></td></tr>
+			<input type="text" name="<?php echo "sentaku_name".$sum; ?>"placeholder="20文字まで" required>
 		<?php 
 			$sum++; 
 			endwhile; ?>
 		
-		</table>
-		<input type="submit" name="submit_name" value="次へ" >
-		</form>
-		
-		
-		
-	</body>
-	
-</html>
+		<input type="submit" name="submit_name" value="次へ" class="button">
+        </form>
+</div>
+
+<?php
+    require_once($_SERVER['DOCUMENT_ROOT'] . '/footer.php');
+?>
