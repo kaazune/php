@@ -49,6 +49,11 @@ $c=$c1+$c2;
 <input type="submit" name="submit_sch" value="検索" >
 </form>
 
+<form action="viewvote2.php" method="post"> 
+
+<input type='hidden' name='c1' value=' <?php echo $c1; ?> ' >
+<input type='hidden' name='c2' value=' <?php echo $c2; ?> ' >
+
 <?php if (!empty($_POST['submit_sch'])) { ?>
         <?php if ($c2==0) { ?>
             <strong>該当する結果はありません</strong> <br >
