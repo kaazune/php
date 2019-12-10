@@ -59,13 +59,6 @@ if($_POST['c1']){
 
 $sql_title = "SELECT * FROM title WHERE id=$title_id";
 $result_title = $mysqli->query($sql_title);
-if($result_title === FALSE) {
-	echo "error2";
-}
-
-while($val = mysqli_fetch_assoc($result_title)){
-	$title_view= $val['title'];
-	$detail_view=$val['detail'];
 }
 
 ?>
@@ -101,9 +94,7 @@ while ($row = $result->fetch_assoc()) {
     <div class="b-in1">
         <?php echo $sentaku_name; ?>
     </div>
-    <div class="b-in2">
-        <span id="num"><?php echo $vote; ?></span>
-    </div>
+    <span id="num" class="b-in2"><?php echo $vote; ?></span>
 	<button id="<?php echo $sentaku_id; ?>" name="<?php echo $sentaku_name; ?>">投票する</button>
 </div>
 
@@ -128,7 +119,7 @@ $(function() {
 			var voteData = 'id='+ sentaku_id;
 
 			// span内の投票数を書き換える
-			var thisButton = $(this).prev('span');
+			var thisButton = $(this).prev('#num');
 
 			$.ajax({
 
