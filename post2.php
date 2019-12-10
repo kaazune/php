@@ -53,7 +53,7 @@ include("config.php");
             <label>選択肢名<?php echo $sum ?>つ目</label>
 			<input type='hidden' name='num' value='<?php echo $num; ?>' >
 			<input type='hidden' name='title_id' value=' <?php echo $title_id; ?> ' >
-			<input type="text" name="<?php echo "sentaku_name".$sum; ?>"placeholder="20文字まで" required>
+			<input type="text" name="<?php echo "sentaku_name".$sum; ?>"placeholder="20文字まで" required maxlength="20" autocomplete="off">
 		<?php 
 			$sum++; 
 			endwhile; ?>
