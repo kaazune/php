@@ -59,6 +59,13 @@ if($_POST['c1']){
 
 $sql_title = "SELECT * FROM title WHERE id=$title_id";
 $result_title = $mysqli->query($sql_title);
+if($result_title === FALSE) {
+	echo "error2";
+}
+
+while($val = mysqli_fetch_assoc($result_title)){
+	$title_view= $val['title'];
+	$detail_view=$val['detail'];
 }
 
 ?>

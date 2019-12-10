@@ -45,7 +45,7 @@ $c=$c1+$c2;
 
 
 <form action="listvote.php" method="post">
-<input type="text" name="title_sch" required>
+<input type="text" name="title_sch" required autocomplete="off">
 <input type="submit" name="submit_sch" value="検索" >
 </form>
 
