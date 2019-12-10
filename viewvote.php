@@ -14,16 +14,14 @@ foreach($result_title as $val) {
 }
 
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>投票システム</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-</head>
-<body>
 
+
+<?php
+    define("title", "vote");
+    require_once($_SERVER['DOCUMENT_ROOT'] . '/header.php');
+?>
+
+<div class="center">
 <table>
 			<tr><th>投票のタイトル</th>
 			<td><?php echo $title_view; ?></td></tr>
@@ -42,12 +40,10 @@ while ($row = $result->fetch_assoc()) {
 	$vote = $row['vote'];
 ?>
 
-
-
 <p>
 	<?php echo $sentaku_name; ?>：
 	<span id="num"><?php echo $vote; ?></span>
-	<button id="<?php echo $sentaku_id; ?>" name="<?php echo $sentaku_name; ?>">投票する</button>
+	<button class="button" id="<?php echo $sentaku_id; ?>" name="<?php echo $sentaku_name; ?>">投票する</button>
 </p>
 
 <?php
@@ -96,5 +92,8 @@ $(function() {
 	<br>
 <a href="index.html">TOPに戻る</a>
 
-</body>
-</html>
+</div>
+
+<?php
+    require_once($_SERVER['DOCUMENT_ROOT'] . '/footer.php');
+?>
