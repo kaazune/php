@@ -33,22 +33,20 @@ $c=$c1+$c2;
 
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>投票システム</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-</head>
-<body>
+<?php
+    define("title", "Find vote");
+    require_once($_SERVER['DOCUMENT_ROOT'] . '/header.php');
+?>
 
 
-<form action="listvote.php" method="post">
-<input type="text" name="title_sch" required>
-<input type="submit" name="submit_sch" value="検索" >
-</form>
+<div class="form1">
+    <form action="listvote.php" method="post">
+        <input type="text" name="title_sch" required>
+        <input type="submit" name="submit_sch" value="検索">
+    </form>
+</div>
 
+<div class="form2">
 <form action="viewvote.php" method="post"> 
 
 <input type='hidden' name='c1' value=' <?php echo $c1; ?> ' >
@@ -73,20 +71,23 @@ $c=$c1+$c2;
     <?php }   
         } ?>
         
-     投票一覧   
+   
                 <ul>        
                 <?php for($i=0;$i<$c1;$i++){ ?>
                     <li>
-                    <?php echo htmlspecialchars($stmt_list[$i]['title']). " : " . htmlspecialchars($stmt_list[$i]['detail']); ?>
+                    
                     <input type='hidden' name='title_id' value=' <?php echo $i; ?> ' >
-                     <input type="submit" name="submit_list<?php echo $i; ?>" value="この投票をみる<?php echo $i; ?>">
+                     <input type="submit" name="submit_list<?php echo $i; ?>" value="<?php echo htmlspecialchars($stmt_list[$i]['title']). " : " . htmlspecialchars($stmt_list[$i]['detail']); ?>">
                      </li>
-                    <?php
+                <?php
                 }
                 ?>
                 </ul>
    </form>
     
 
-</body>
-</html>
+</div>
+
+<?php
+    require_once($_SERVER['DOCUMENT_ROOT'] . '/footer.php');
+?>
