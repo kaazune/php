@@ -49,7 +49,7 @@ $c=$c1+$c2;
 <input type="submit" name="submit_sch" value="検索" >
 </form>
 
-<form action="viewvote2.php" method="post"> 
+<form action="viewvote.php" method="post"> 
 
 <input type='hidden' name='c1' value=' <?php echo $c1; ?> ' >
 <input type='hidden' name='c2' value=' <?php echo $c2; ?> ' >
