@@ -64,8 +64,8 @@ if($result_title === FALSE) {
 }
 
 while($val = mysqli_fetch_assoc($result_title)){
-	echo $title_view= $val['title'];
-	echo $detail_view=$val['detail'];
+	$title_view= $val['title'];
+	$detail_view=$val['detail'];
 }
 
 ?>
