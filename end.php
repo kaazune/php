@@ -39,14 +39,14 @@ include("config.php");
 
 ?>
 
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>投票システム</title>
-	</head>
-	
-	<body>
+
+<?php
+    define("title", "Complete");
+    require_once($_SERVER['DOCUMENT_ROOT'] . '/header.php');
+?>
+
+
+<div class="center">
 	<form action="viewvote.php" method="post">
 	<input type='hidden' name='title_id' value='<?php echo $title_id; ?> ' >
 	<input type="submit" name="submit_name" value="次へ" >
@@ -56,12 +56,11 @@ include("config.php");
 	<a href="listvote.php">他の投票を見る</a>
 	<br />
 	<a href="post.php">他の投票を作成する</a>
-	
+</div>
 
-	</body>
-	
-</html>
-
+<?php
+    require_once($_SERVER['DOCUMENT_ROOT'] . '/footer.php');
+?>
 		
 		
 		
