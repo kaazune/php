@@ -2,6 +2,7 @@ body {
     margin: 0;
     color: #F75F6F;
     background-color: #ffefe7;
+    font-family: 'Montserrat', 'Sawarabi Gothic';
 }
 
 a {
@@ -14,8 +15,11 @@ ul {
     list-style: none;
 }
 
+button {
+    border: none;
+}
+
 .center {
-    width: 100%;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -62,6 +66,11 @@ body:after {
   top: 0;
   left: 0;
 }
+
+
+
+
+
 
 
 /* header */
@@ -115,6 +124,12 @@ header {
   width: 100%;
 }
 
+
+
+/* sukima */
+.sukima {
+    height: 80px;
+}
 
 /* wrap */
 
@@ -175,9 +190,8 @@ h2 {
 
 
 
-
-/* post.php, post2.php */
-.step1, .step2 {
+/* post.php, post2.php, end.php */
+.step1, .step2, .comp {
     margin: 0 0 50px 0;
 }
 
@@ -185,7 +199,12 @@ h2 {
     display: block;
     margin: 0 auto;
     width: 150px;
+}
 
+.comp img {
+    display: block;
+    margin: 0 auto;
+    width: 300px;
 }
 
 form {
@@ -237,6 +256,117 @@ input[type="submit"] {
     margin: 20px 40px;
 }
 
+.long {
+    display: block;
+    width: 100%;
+}
+
+.long input[type="submit"] {
+    border: none;
+    text-decoration: none;
+    width: 220px;
+    font-weight: 600;
+    margin: 20px auto;
+    display: block;
+}
+
+
+/* viewvote.php */
+.title {
+    width: 100%;
+    height: 40px;
+    padding: 20px;
+    background-color: #f7576f;
+    width: 50vw;
+    color: white;
+    font-size: 20px;
+    font-family: "Sawarabi Gothic";
+    text-align: left;
+}
+
+.bold {
+    font-weight: 700;
+    line-height: 40px;
+}
+
+.small {
+    font-size: 15px;
+    display: inline-block;
+    margin-left: 20px;
+    line-height: 40px;
+}
+
+.vote {
+    width: 50vw;
+    background-color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.link {
+    width: 50vw;
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.link p {
+    display: inline;
+}
+
+.border {
+    display: grid;
+    grid-template-columns: 1fr 20px 100px;
+    text-align: left;
+    grid-gap: 20px;
+    margin: 15px 40px;
+    color: #3c3b3b;
+}
+
+.border button {
+    grid-column-start: 3;
+    grid-column-end: 4;
+}
+
+.b-in1 {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    line-height: 30px;
+    
+}
+
+.b-in2 {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    line-height: 30px;
+    text-align: center;
+}
+
+button {
+    background-color: #F75F6F;
+    width: 100px;
+    height: 30px;
+    font-size: 15px;
+    color: white;
+}
+
+button:hover {
+    background-color: white;
+    color: #f75f6f;
+    transition: .3s;
+    border: 2px solid #f75f6f;
+}
 
 
 
+/* footer */
+.foot {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 13px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+}
