@@ -20,6 +20,7 @@
             <ul>
                 <li><a href="#">How to</a></li>
                 <li><a href="post.php">Create</a></li>
+                <li><a href="listvote.php">Find</a></li>
             </ul>
         </div>
     </header>

@@ -9,6 +9,7 @@
         </div>
         <div class="wrapb">
             <a href="post.php" class="button">投票作成 <i class="fas fa-pen"></i></a>
+            <a href="listvote.php" class="button">投票を探す <i class="fas fa-search"></i></a>
             </div>
         <div class="share"></div>
     </div>
