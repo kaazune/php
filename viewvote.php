@@ -21,14 +21,16 @@ foreach($result_title as $val) {
     require_once($_SERVER['DOCUMENT_ROOT'] . '/header.php');
 ?>
 
+
 <div class="center">
-<table>
-			<tr><th>投票のタイトル</th>
-			<td><?php echo $title_view; ?></td></tr>
-			
-			<tr><th>投票の概要</th>
-			<td><?php echo $detail_view; ?></td></tr>
-</table>
+
+<div class="title">
+        <span class="bold"><?php echo $title_view; ?></span>
+        <span class="small"><?php echo $detail_view; ?></span>
+</div>
+
+<div class="vote">
+    
 
 <?php
 $query = "SELECT * FROM sentaku WHERE id=$title_id";
@@ -40,11 +42,15 @@ while ($row = $result->fetch_assoc()) {
 	$vote = $row['vote'];
 ?>
 
-<p>
-	<?php echo $sentaku_name; ?>：
-	<span id="num"><?php echo $vote; ?></span>
-	<button class="button" id="<?php echo $sentaku_id; ?>" name="<?php echo $sentaku_name; ?>">投票する</button>
-</p>
+<div class="border">
+    <div class="b-in1">
+        <?php echo $sentaku_name; ?>
+    </div>
+    <div class="b-in2">
+        <span id="num"><?php echo $vote; ?></span>
+    </div>
+	<button id="<?php echo $sentaku_id; ?>" name="<?php echo $sentaku_name; ?>">投票する</button>
+</div>
 
 <?php
 } // End of while
@@ -88,10 +94,14 @@ $(function() {
 });
 </script>
 
-<a href="listvote.php">投票一覧</a>
-	<br>
-<a href="index.html">TOPに戻る</a>
+</div>
 
+<div class="link">
+    <a href="listvote.php">投票一覧</a>
+    <p> | </p>
+    <a href="index.php">TOPに戻る</a>
+</div>
+    
 </div>
 
 <?php
