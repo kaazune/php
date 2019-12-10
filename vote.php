@@ -8,12 +8,11 @@ if( $_POST['id'] ) {
 	$id = $mysqli->real_escape_string($id);
 
     if ( !isset($_COOKIE['voted']) ) {
-        setcookie("voted", "voted", time()+3);
+        setcookie("voted", "voted", time()+0);
       
         // 投票数をアップデートする
 	    $sql = "UPDATE sentaku SET vote = vote+1  WHERE sentaku_id='$id'";
 	    $mysqli->query( $sql);
- 
     }
 
 	// 投票数を取得する
