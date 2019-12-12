@@ -40,6 +40,7 @@ $c=$c1+$c2;
 
 
 <div class="form1">
+    <h2>投票をさがす</h2>
     <form action="listvote.php" method="post">
         <input type="text" name="title_sch" required>
         <input type="submit" name="submit_sch" value="検索">
@@ -47,10 +48,12 @@ $c=$c1+$c2;
 </div>
 
 <div class="form2">
-<form action="viewvote.php" method="post"> 
-
-<input type='hidden' name='c1' value=' <?php echo $c1; ?> ' >
-<input type='hidden' name='c2' value=' <?php echo $c2; ?> ' >
+    <h2>
+        みんなの投票
+    </h2>
+    <form action="viewvote.php" method="post" name="formform"> 
+        <input type='hidden' name='c1' value=' <?php echo $c1; ?> ' >
+        <input type='hidden' name='c2' value=' <?php echo $c2; ?> ' >
 
 <?php if (!empty($_POST['submit_sch'])) { ?>
         <?php if ($c2==0) { ?>
@@ -72,18 +75,27 @@ $c=$c1+$c2;
         } ?>
         
    
-                <ul>        
-                <?php for($i=0;$i<$c1;$i++){ ?>
-                    <li>
+                <div class="container">     
+                <?php for($i=0; $i<$c1; $i++){ ?>
                     
+                
                     <input type='hidden' name='title_id' value=' <?php echo $i; ?> ' >
-                     <input type="submit" name="submit_list<?php echo $i; ?>" value="<?php echo htmlspecialchars($stmt_list[$i]['title']). " : " . htmlspecialchars($stmt_list[$i]['detail']); ?>">
-                     </li>
+                    <div class="grid">
+                        <div class="grid1">
+                            <span class="bold2"><?php echo htmlspecialchars($stmt_list[$i]['title']); ?></span>
+                            <span class="small2"><?php echo htmlspecialchars($stmt_list[$i]['detail']); ?></span>
+                        </div>
+                        <div class="grid2">
+                            <input type="submit" name="submit_list<?php echo $i; ?>" value="投票を見る" class="grid-in">
+                        </div>
+                    </div>
+                    
+                    
                 <?php
                 }
                 ?>
-                </ul>
-   </form>
+                </div>
+</form>
     
 
 </div>
