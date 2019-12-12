@@ -5,7 +5,6 @@ ini_set('display_errors', "On");
 ob_start();
 include('config.php');
 
-//ここから
 if($_POST['c1']){
 	//listvote.phpから
 	$c1=intval($_POST['c1']);
@@ -20,33 +19,18 @@ if($_POST['c1']){
 	}
 	
 	$v1=0;
+	$v2=0;
+	
 	if($n<$c1){
-		$sql_list="select * from title";
-		$stmt_list = array();
-		foreach($mysqli->query($sql_list) as $a1) {
-			if($v1!=$n+1){
-        		array_push($stmt_list,$a1);
-        		$v1++;
-        	}
-        }
-        $title_id=htmlspecialchars($stmt_list[intval($v1-1)]['id']);
+		
+		//みんなの投票から
+        include('./fromlist.php');
        
 	}elseif($c1<=$n && $n<$c3){
-		$v2=0;
-        $search = htmlspecialchars($_POST['title_sch']);
-        $stmt_sch = array();
-        $sql_sch = "select * from title where title like '%$search%'";
-        
-        foreach($mysqli->query($sql_sch) as $a2) {
-            if($v2!=$n-$c1){
-            	array_push($stmt_sch,$a2);
-            	$v2++;
-            }
-         }
-         print_r($stmt_sch);
-         $title_id=htmlspecialchars($stmt_sch[$v2]['id']);
-         echo "v2=".$v2;
-         echo "<br >";
+    
+    	//検索結果から
+    	include('./fromsearch.php');
+    
     }
 	
 }else{
@@ -55,11 +39,9 @@ if($_POST['c1']){
           	echo $title_id;
 }
 
-//ここまで
-
 $sql_title = "SELECT * FROM title WHERE id=$title_id";
 $result_title = $mysqli->query($sql_title);
-if($result_title === FALSE) {
+if(!$result_title) {
 	echo "error2";
 }
 
