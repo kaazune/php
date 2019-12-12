@@ -1,7 +1,8 @@
 <?php
 // エラーを出力する
+/*
 ini_set('display_errors', "On");
-
+*/
 ob_start();
 include('config.php');
 
@@ -59,14 +60,14 @@ while($val = mysqli_fetch_assoc($result_title)){
 ?>
 
 
-<div class="center">
+<div class="center2">
 
-<div class="title">
-        <span class="bold"><?php echo $title_view; ?></span>
-        <span class="small"><?php echo $detail_view; ?></span>
-</div>
+    <div class="title">
+            <span class="bold"><?php echo $title_view; ?></span>
+            <span class="small"><?php echo $detail_view; ?></span>
+    </div>
 
-<div class="vote">
+    <div class="vote">
     
 
 <?php
@@ -79,13 +80,13 @@ while ($row = $result->fetch_assoc()) {
 	$vote = $row['vote'];
 ?>
 
-<div class="border">
-    <div class="b-in1">
-        <?php echo $sentaku_name; ?>
-    </div>
-    <span id="num" class="b-in2"><?php echo $vote; ?></span>
-	<button id="<?php echo $sentaku_id; ?>" name="<?php echo $sentaku_name; ?>">投票する</button>
-</div>
+        <div class="border">
+            <div class="b-in1">
+                <?php echo $sentaku_name; ?>
+            </div>
+            <span id="num" class="b-in2"><?php echo $vote; ?></span>
+            <button id="<?php echo $sentaku_id; ?>" name="<?php echo $sentaku_name; ?>">投票する</button>
+        </div>
 
 <?php
 } // End of while
