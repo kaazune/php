@@ -37,6 +37,10 @@ button {
     padding: 0 7px;
 }
 
+.heading h5 {
+    font-size: 17px;
+    margin: 20px 0;
+}
 
 .center {
     position: absolute;

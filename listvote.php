@@ -75,6 +75,7 @@ $rand = array_slice($rand,0, 9);
                 
                 <div class="heading">
                     <p>検索結果</p>
+                    <h5>ヒット件数:<?php echo $c2; ?></h5>
                 </div>
                 <input type='hidden' name='title_sch' value=' <?php echo $search; ?> ' >
             <div class="container">
