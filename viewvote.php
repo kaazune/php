@@ -32,12 +32,17 @@ if($_POST['c1']){
     	//検索結果から
     	include('./fromsearch.php');
     
-    }
+    }else{
+		for($n=0;$n<3;$n++){
+			if(!empty($_POST["submit_recd".$n])){
+				$title_id=$_POST["title_id".$n]+1;
+        	 }
+        }
+	}
 	
 }else{
  		//end.phpから
           	$title_id=$_POST['title_id'];
-          	echo $title_id;
 }
 
 $sql_title = "SELECT * FROM title WHERE id=$title_id";
