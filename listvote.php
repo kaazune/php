@@ -42,14 +42,19 @@ $c=$c1+$c2;
 <div class="form1">
     <h2>投票をさがす</h2>
     <form action="listvote.php" method="post">
-        <input type="text" name="title_sch" required>
+        <input type="text" name="title_sch" required autocomplete="off">
         <input type="submit" name="submit_sch" value="検索">
+        <!--
+        <button type="submit" name="submit_sch">
+            <i class="fas fa-search"></i>
+        </button>
+        -->
     </form>
 </div>
 
 <div class="form2">
     <h2>
-        みんなの投票
+        投票一覧
     </h2>
     <form action="viewvote.php" method="post" name="formform"> 
         <input type='hidden' name='c1' value=' <?php echo $c1; ?> ' >
@@ -81,13 +86,10 @@ $c=$c1+$c2;
                 
                     <input type='hidden' name='title_id' value=' <?php echo $i; ?> ' >
                     <div class="grid">
-                        <div class="grid1">
+                        <button type="submit" name="submit_list<?php echo $i; ?>" value="投票を見る" class="grid1">
                             <span class="bold2"><?php echo htmlspecialchars($stmt_list[$i]['title']); ?></span>
                             <span class="small2"><?php echo htmlspecialchars($stmt_list[$i]['detail']); ?></span>
-                        </div>
-                        <div class="grid2">
-                            <input type="submit" name="submit_list<?php echo $i; ?>" value="投票を見る" class="grid-in">
-                        </div>
+                        </button>
                     </div>
                     
                     
