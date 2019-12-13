@@ -6,7 +6,7 @@ ini_set('display_errors', "On");
 ob_start();
 include('config.php');
 
-if($_POST['c1']){
+if(!empty($_POST['c1'])){
 	//listvote.phpから
 	$c1=intval($_POST['c1']);
 	$c2=intval($_POST['c2']);
@@ -33,7 +33,7 @@ if($_POST['c1']){
     	include('./fromsearch.php');
     
     }else{
-		for($n=0;$n<3;$n++){
+		for($n=0;$n<10;$n++){
 			if(!empty($_POST["submit_recd".$n])){
 				$title_id=$_POST["title_id".$n]+1;
         	 }
