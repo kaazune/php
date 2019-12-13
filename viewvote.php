@@ -90,7 +90,7 @@ while ($row = $result->fetch_assoc()) {
                 <?php echo $sentaku_name; ?>
             </div>
             <span id="num" class="b-in2"><?php echo $vote; ?></span>
-            <button id="<?php echo $sentaku_id; ?>" name="<?php echo $sentaku_name; ?>">投票する</button>
+            <button id="<?php echo $sentaku_id; ?>" name="<?php echo $sentaku_name; ?>" class="button2">投票する</button>
         </div>
 
 <?php
