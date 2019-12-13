@@ -31,6 +31,13 @@ if (!empty($_POST['submit_sch'])) {
 
 $c=$c1+$c2;
 
+//おすすめの投票をランダムで決める
+$min=0;
+$max=$c1-1;
+$rand = range($min,$max);
+shuffle($rand);
+$rand = array_slice($rand,0, 10);
+
 ?>
 
 <?php
@@ -79,6 +86,24 @@ $c=$c1+$c2;
     <?php }   
         } ?>
         
+        
+    おすすめの投票   
+        <ul>        
+            <?php 
+            $a=0;
+            while($a!=10){ ?>
+                <li>
+                    <?php 
+                        $rand_array=$rand[$a];
+                        echo htmlspecialchars($stmt_list[$rand_array]['title']). " : " . htmlspecialchars($stmt_list[$rand_array]['detail']); 
+                    ?>
+                    <input type='hidden' name='title_id<?php echo $a; ?>' value=' <?php echo $rand[$a]; ?>' >
+                    <input type="submit" name='submit_recd<?php echo $a; ?>' value="この投票をみる">
+                </li>
+            <?php $a++;
+            } ?>
+        </ul>
+
    
                 <div class="container">     
                 <?php for($i=0; $i<$c1; $i++){ ?>
