@@ -36,7 +36,7 @@ $min=0;
 $max=$c1-1;
 $rand = range($min,$max);
 shuffle($rand);
-$rand = array_slice($rand,0, 9);
+$rand = array_slice($rand,0,10);
 
 ?>
 
