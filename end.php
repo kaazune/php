@@ -32,6 +32,42 @@ include("config.php");
 					echo $mysqli->errno . $mysqli->error;
 				}
 			}
+			
+			if(isset($_FILES['upimg'.$x])){
+				
+				//格納するsentaku_idを取得
+				$sql_max="select * from sentaku where sentaku_id=(select max(sentaku_id) from sentaku)";
+				$stmt_max= array();
+				foreach ($mysqli->query($sql_max) as $a1) {
+        		array_push($stmt_max,$a1);
+				}
+				$sentaku_id= intval($stmt_max["0"]["sentaku_id"]);
+			
+				//画像を格納する
+				$img_name =$_FILES['upimg'.$x]['name'];
+				$new_name='./upload/'."img".$sentaku_id;
+				//拡張子を判定
+				switch (exif_imagetype( $_FILES ['upimg'.$x] ['tmp_name'] )) {
+        			case IMAGETYPE_JPEG :
+            			$new_name .= '.jpg';
+            			break;
+        			case IMAGETYPE_GIF :
+           			 	$new_name .= '.gif';
+            			break;
+        			case IMAGETYPE_PNG :
+            			$new_name .= '.png';
+            			break;
+        			default :
+            			echo "error";
+            			exit ();
+    			}
+				move_uploaded_file($_FILES['upimg'.$x]['tmp_name'],$new_name);
+				
+				//dbにパスを格納
+				$sql_img="update sentaku set img='$new_name' where sentaku_id=$sentaku_id";
+				$stmt_img=$mysqli->query($sql_img);
+								
+				}
 			$x++;
 		}
 	}

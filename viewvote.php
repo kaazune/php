@@ -83,6 +83,7 @@ while ($row = $result->fetch_assoc()) {
 	$sentaku_id = $row['sentaku_id'];
 	$sentaku_name = $row['sentaku_name'];
 	$vote = $row['vote'];
+	$img=$row['img'];
 ?>
 
         <div class="border">
@@ -90,6 +91,8 @@ while ($row = $result->fetch_assoc()) {
                 <?php echo $sentaku_name; ?>
             </div>
             <span id="num" class="b-in2"><?php echo $vote; ?></span>
+            <!-- 画像 -->
+            <img src="<?php echo $img; ?>" >
             <button id="<?php echo $sentaku_id; ?>" name="<?php echo $sentaku_name; ?>" class="button2">投票する</button>
         </div>
 

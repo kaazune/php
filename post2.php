@@ -48,12 +48,17 @@ include("config.php");
 		$sum=1;
 		while($sum<=$num):
 		?>
-		<form action="end.php" method="post">
+		<form action="end.php" method="post" enctype="multipart/form-data">
 		
             <label>選択肢名<?php echo $sum ?>つ目</label>
 			<input type='hidden' name='num' value='<?php echo $num; ?>' >
 			<input type='hidden' name='title_id' value=' <?php echo $title_id; ?> ' >
-			<input type="text" name="<?php echo "sentaku_name".$sum; ?>"placeholder="20文字まで" required maxlength="20" autocomplete="off">
+			<input type="text" name="<?php echo "sentaku_name".$sum; ?>"placeholder="20文字まで" required maxlength="20" autocomplete="off"> 
+			<br>
+			<!--画像 -->
+			<input type="file" name="<?php echo "upimg".$sum; ?>" accept="image/*">
+			<br>
+
 		<?php 
 			$sum++; 
 			endwhile; ?>
