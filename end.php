@@ -33,7 +33,7 @@ include("config.php");
 				}
 			}
 			
-			if(isset($_FILES['upimg'.$x])){
+			if(!$_FILES['upimg'.$x]===true){
 				
 				//格納するsentaku_idを取得
 				$sql_max="select * from sentaku where sentaku_id=(select max(sentaku_id) from sentaku)";
