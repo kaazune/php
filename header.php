@@ -28,6 +28,7 @@
                 <li><a href="#">How to</a></li>
                 <li><a href="post.php">Create</a></li>
                 <li><a href="listvote.php">Find</a></li>
+                <li><a href="login.php">Log in</a></li>
             </ul>
         </div>
     </header>
