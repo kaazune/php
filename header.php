@@ -11,8 +11,13 @@
     <link href="slick/slick-theme.css" rel="stylesheet" type="text/css">
     <link href="slick/slick.css" rel="stylesheet" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    
+    
 </head>
 <body>
+   
+    <main id="barba-wrapper">
+        <div class="barba-container">
 
     <header>
         <div class="heada">
