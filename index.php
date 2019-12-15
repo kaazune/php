@@ -19,7 +19,7 @@
     
 ?>
 
-    <div class="center">
+    <div class="wrapper">
         <div class="wrapa">
             <p>誰でもかんたんに投票がつくれる！<br>投票をみんなに共有して回答をチェック！</p>
         </div>

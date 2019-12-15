@@ -69,15 +69,18 @@ $rand = array_slice($rand,0,10);
 
 <?php if (!empty($_POST['submit_sch'])) { ?>
         <?php if ($c2==0) { ?>
-            <strong>該当する結果はありません</strong> <br >
+            <div class="heading">
+                    <p>検索結果</p>
+                    <h5>該当する結果はありません</h5>
+            </div>
         <?php } else {  ?>
             
                 
                 <div class="heading">
                     <p>検索結果</p>
                     <h5>
-                        ”<?php echo $_POST['title_sch']; ?>”で検索 ->
-                        ヒット件数：<?php echo $c2; ?>
+                        "<?php echo $_POST['title_sch']; ?>"で検索 ->
+                        ヒット件数: <?php echo $c2; ?>
                     </h5>
                 </div>
                 <input type='hidden' name='title_sch' value=' <?php echo $search; ?> ' >
@@ -117,16 +120,6 @@ $rand = array_slice($rand,0,10);
                         <input type='hidden' name='title_id<?php echo $a; ?>' value='<?php echo $rand[$a]; ?>'>
                     </button>
                 </div>
-            <?php
-            /*
-                    <?php
-                        $rand_array=$rand[$a];
-                        echo htmlspecialchars($stmt_list[$rand_array]['title']). " : " . htmlspecialchars($stmt_list[$rand_array]['detail']); 
-                    ?>
-                    <input type='hidden' name='title_id<?php echo $a; ?>' value=' <?php echo $rand[$a]; ?>' >
-                    <input type="submit" name='submit_recd<?php echo $a; ?>' value="この投票をみる">
-            */
-            ?>
             <?php $a++;
             } ?>
         </div>

@@ -169,6 +169,9 @@ header {
 }
 
 /* wrap */
+.wrapper {
+    margin: 60px 0 0 0;
+}
 
 .wrapa, .wrapb {
     text-align: center;
@@ -195,7 +198,6 @@ h2 {
 
 .wrapa p {
     font-size: 25px;
-    margin: 0;
     padding: 0;
 }
 
@@ -465,7 +467,11 @@ input[type="submit"] {
     margin: 20px auto 80px auto;
     width: 80%;
     column-count: 5;
-    column-gap: 0;
+    column-gap: 15px;
+    -webkit-column-count: 5;
+    -webkit-column-gap: 15px;
+    -webkit-column-fill: auto;
+    column-fill: auto;
 }
 
 .grid {
@@ -524,7 +530,7 @@ input[type="submit"] {
 
 
 .container2 {
-    width: 75%;
+    width: 100%;
     margin: 0 auto;
     text-align: center;
 }
@@ -549,7 +555,7 @@ input[type="submit"] {
     border: 3px solid #F75F6F;
     outline: 0;
     transition: .3s;
-    width: 300px;
+    width: 18vw;
 }
 
 .grid-in2:hover {
