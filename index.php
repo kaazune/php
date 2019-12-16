@@ -1,8 +1,7 @@
 <?php
     define("title", "Create Vote");
-    require_once($_SERVER['DOCUMENT_ROOT'] . '/header.php');
     include('config.php');
-    
+    require_once($_SERVER['DOCUMENT_ROOT'] . '/header.php');
     
     $c1=0;
     $sql_list="select * from title";
@@ -16,6 +15,8 @@
     $rand = range($min,$max);
     shuffle($rand);
     $rand = array_slice($rand,0,10);
+    
+    
     
 ?>
 

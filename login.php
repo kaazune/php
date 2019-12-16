@@ -1,6 +1,4 @@
 <?php
-#セッション開始
-session_start();
 
 include("config.php");
 define("title", "Login | Create Vote");
@@ -42,6 +40,7 @@ if (isset($_POST["login"])) {
                         $row['name'];  #ユーザー名を取得
                     }
                     $_SESSION["NAME"] = $row['name'];
+                    $_SESSION["ID"]=$id;
                     header("Location: main.php");  #メイン画面へ遷移
                     exit();  #処理終了
                     #認証成功なら、セッションIDを新規に発行する
@@ -72,11 +71,11 @@ if (isset($_POST["login"])) {
                 <div><font color="#ff0000"><?php echo htmlspecialchars($errorMessage, ENT_QUOTES); ?></font></div>
                 <label for = "userid">USER NAME</label>
                 <input type = "text" name="userid" placeholder="WRITE USER NAME" value="<?php if (!empty($_POST["username"])) {
-                echo htmlspecialchars($_POST["username"], ENT_QUOTES);} ?>">
+                echo htmlspecialchars($_POST["username"], ENT_QUOTES);} ?>" autocomplete="off">
                 <br>
                 
                 <label for="password">PASSWORD</label>
-                <input type="password" id="password" name="password" value="" placeholder="WRITE PASSWORD">
+                <input type="password" id="password" name="password" value="" placeholder="WRITE PASSWORD" autocomplete="off">
                 <br>
                 
                 <input type="submit" id="login" name="login" value="LOGIN">

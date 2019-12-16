@@ -1,8 +1,5 @@
 <?php
-
-#セッション開始
-session_start();
-
+require_once($_SERVER['DOCUMENT_ROOT'] . '/header.php');
 include("config.php");
 
 #エラーメッセージ、登録完了メッセージの初期化
@@ -39,6 +36,9 @@ if (isset($_POST["signUp"])) {
             $stmt->execute(array($u, password_hash($p, PASSWORD_DEFAULT)));
             
             $userid = $pdo->lastinsertid(); 
+            
+            header('Location: login.php');
+            
         } catch (PDOException $e) {
             $errorMessage = 'データベースエラー';
             #デバッグのときに$e->getMessage() でエラー内容を参照可能
@@ -46,6 +46,7 @@ if (isset($_POST["signUp"])) {
     } else if($_POST["password"] != $_POST["password2"]) {
         $errorMessage = 'パスワードに誤りがあります。';
     }
+    
 }
 ?>
 
@@ -68,17 +69,17 @@ if (isset($_POST["signUp"])) {
                 
                 <label for="username">USER NAME</label>
                 <input type="text" id="username" name="username" placeholder="ユーザー名を入力" value="<?php if (!empty($_POST["username"]))
-                {echo htmlspecialchars($_POST["username"], ENT_QUOTES);} ?>">
+                {echo htmlspecialchars($_POST["username"], ENT_QUOTES);} ?>" autocomplete="off">
 
                 <br>
                 
                 <label for="password">PASSWORD</label>
-                <input type="password" id="password" name="password" value="" placeholder="パスワードを入力">
+                <input type="password" id="password" name="password" value="" placeholder="パスワードを入力" autocomplete="off">
                 
                 <br>
                 
                 <label for="password2">PASSWORD(確認用)</label>
-                <input type="password" id="password2" name="password2" value="" placeholder="再度パスワードを入力">
+                <input type="password" id="password2" name="password2" value="" placeholder="再度パスワードを入力" autocomplete="off">
                 
                 <br>
                 

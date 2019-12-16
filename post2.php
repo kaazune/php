@@ -16,12 +16,21 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/header.php');
 				$title=$_POST['title'];
 				$num=$_POST['num'];
 				$detail=$_POST['detail'];
-				$stmt=$mysqli->prepare("INSERT INTO title(title,num,detail) VALUES(?,?,?)");
+				
+				if(!isset($_SESSION['ID'])){
+					$stmt=$mysqli->prepare("INSERT INTO title(title,num,detail) VALUES(?,?,?)");
+					$stmt->bind_param('sss',$title,$num,$detail);
+				}elseif(isset($_SESSION['ID'])){
+					
+					echo $user_id=$_SESSION['ID'];
+					$stmt=$mysqli->prepare("INSERT INTO title(title,num,detail,user_id) VALUES(?,?,?,?)");
+					$stmt->bind_param('ssss',$title,$num,$detail,$user_id);
+				}
 				
 			
 			if($stmt){
 				//定義する要素数を増やすたびにsを増やす↓
-				$stmt->bind_param('sss',$title,$num,$detail);
+				//$stmt->bind_param('sss',$title,$num,$detail);
 		
 				if(!$stmt->execute()){
 					echo $stmt->errno . $stmt->error;

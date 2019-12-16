@@ -36,12 +36,35 @@ if(!empty($_POST['c1'])){
     	include('./fromsearch.php');
     
     }else{
+    	
+    	//おすすめの投票から
 		for($n=0;$n<10;$n++){
 			if(!empty($_POST["submit_recd".$n])){
 				$title_id=$_POST["title_id".$n]+1;
         	 }
         }
 	}
+	//mypageから
+}elseif(!empty($_POST['c_id'])){
+
+	$c_id=$_POST['c_id'];
+	for($n=0;$n<$c_id;$n++){
+        if(!empty($_POST["submit_user".$n])){ 
+        	break;
+        	}
+	}
+	
+	$user_id=intval($_SESSION['ID']);
+	$sql_userid = "select * from title where user_id=$user_id";
+	$stmt_userid=array();
+	$c4=0;
+    foreach ($mysqli->query($sql_userid) as $a4) {
+    	if($n>=$c4){
+        	array_push($stmt_userid,$a4);
+        	$c4++;
+        }
+	}
+	 $title_id=htmlspecialchars($stmt_userid[$c4-1]['id']);
 	
 }else{
  		//end.phpから

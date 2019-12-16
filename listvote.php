@@ -129,7 +129,6 @@ $rand = array_slice($rand,0,10);
                 <div class="container">     
                 <?php for($i=0; $i<$c1; $i++){ ?>
                     
-                
                     <input type='hidden' name='title_id' value=' <?php echo $i; ?> ' >
                     <div class="grid">
                         <button type="submit" name="submit_list<?php echo $i; ?>" value="投票を見る" class="grid-in">
@@ -137,7 +136,6 @@ $rand = array_slice($rand,0,10);
                             <span class="small2"><?php echo htmlspecialchars($stmt_list[$i]['detail']); ?></span>
                         </button>
                     </div>
-                    
                     
                 <?php
                 }

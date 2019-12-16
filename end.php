@@ -37,7 +37,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/header.php');
 				}
 			}
 			
-			if(isset($_FILES['upimg'.$x])){
+			if($_FILES['upimg'.$x]['error']!==4){
 				
 				//格納するsentaku_idを取得
 				$sql_max="select * from sentaku where sentaku_id=(select max(sentaku_id) from sentaku)";
