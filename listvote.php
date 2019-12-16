@@ -5,6 +5,8 @@ ob_start();
 
 include('config.php');
 
+define("title", "Find | Creater Vote");
+require_once($_SERVER['DOCUMENT_ROOT'] . '/header.php');
 //すべてのタイトルを表示
 $c1=0;
 $sql_list="select * from title";
@@ -40,10 +42,7 @@ $rand = array_slice($rand,0,10);
 
 ?>
 
-<?php
-    define("title", "Find vote");
-    require_once($_SERVER['DOCUMENT_ROOT'] . '/header.php');
-?>
+
 
 
 <div class="form1">

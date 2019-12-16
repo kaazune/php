@@ -1,6 +1,7 @@
 <?php
 include("config.php");
 
+
 // POSTされたときに下記を実行
 if( $_POST['id'] ) {
 

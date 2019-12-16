@@ -4,7 +4,7 @@ ini_set('display_errors',"On");
 
 ?>
 <?php
-    define("title", "step1");
+    define("title", "step1 | Create Vote");
     require_once($_SERVER['DOCUMENT_ROOT'] . '/header.php');
 ?>
         <div class="center">

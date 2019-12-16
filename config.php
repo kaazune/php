@@ -1,7 +1,8 @@
 <?php
 ini_set('display_errors',"On");
+/*
 header("Content-type: text/html; charset=utf-8");
-
+*/
 /*
 $host = "mysql140.phy.lolipop.lan";
 $username = "LAA1119419";

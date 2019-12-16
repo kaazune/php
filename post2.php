@@ -3,6 +3,9 @@
 ini_set('display_errors',"On");
 
 include("config.php");
+
+define("title", "step2 | Create Vote");
+require_once($_SERVER['DOCUMENT_ROOT'] . '/header.php');
 		
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			if((!isset($_POST['title'])) || ($_POST['title']==="")){
@@ -34,10 +37,8 @@ include("config.php");
 ?>
 
 
-<?php
-    define("title", "step2");
-    require_once($_SERVER['DOCUMENT_ROOT'] . '/header.php');
-?>
+    
+
 <div class="center">
     <div class="step2">
         <img src="img/step2.png">

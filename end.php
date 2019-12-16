@@ -4,6 +4,10 @@ ini_set('display_errors',"On");
 
 include("config.php");
 
+define("title", "Complete | Create Vote");
+require_once($_SERVER['DOCUMENT_ROOT'] . '/header.php');
+
+
 	$num=$_POST['num'];
 	$title_id=$_POST['title_id'];
 	
@@ -33,7 +37,7 @@ include("config.php");
 				}
 			}
 			
-			if($_FILES['upimg'.$x]['error']!==4){
+			if(isset($_FILES['upimg'.$x])){
 				
 				//格納するsentaku_idを取得
 				$sql_max="select * from sentaku where sentaku_id=(select max(sentaku_id) from sentaku)";
@@ -76,10 +80,6 @@ include("config.php");
 ?>
 
 
-<?php
-    define("title", "Complete");
-    require_once($_SERVER['DOCUMENT_ROOT'] . '/header.php');
-?>
 
 
 <div class="center">

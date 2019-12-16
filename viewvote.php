@@ -6,6 +6,9 @@ ini_set('display_errors', "On");
 ob_start();
 include('config.php');
 
+define("title", "vote | Create Vote");
+require_once($_SERVER['DOCUMENT_ROOT'] . '/header.php');
+
 if(!empty($_POST['c1'])){
 	//listvote.phpから
 	$c1=intval($_POST['c1']);
@@ -59,10 +62,7 @@ while($val = mysqli_fetch_assoc($result_title)){
 ?>
 
 
-<?php
-    define("title", "vote");
-    require_once($_SERVER['DOCUMENT_ROOT'] . '/header.php');
-?>
+
 
 
 <div class="center2">
@@ -117,7 +117,7 @@ $(function() {
 			var voteData = 'id='+ sentaku_id;
 
 			// span内の投票数を書き換える
-			var thisButton = $(this).prev('#num');
+			var thisButton = $(this).prev('.b-in2');
 
 			$.ajax({
 
