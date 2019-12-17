@@ -40,8 +40,13 @@ if (isset($_POST["signUp"])) {
             header('Location: login.php');
             
         } catch (PDOException $e) {
+            if($e->getCode()==23000){
+                $errorMessage='このUSER NAMEは既に使われています';
+            }else{
             $errorMessage = 'データベースエラー';
+            echo $e->getMessage();
             #デバッグのときに$e->getMessage() でエラー内容を参照可能
+            }
         }
     } else if($_POST["password"] != $_POST["password2"]) {
         $errorMessage = 'パスワードが一致しません';
