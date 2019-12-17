@@ -13,7 +13,7 @@ ini_set('display_errors',"On");
                 <p></p>
             </div>
             
-		    <form action="post2.php" method="post">
+		    <form action="post2.php" method="post" class="post">
                 <lavel for="title">投票のタイトル</lavel>
                 <input type="text" name="title" placeholder="15文字まで" required autocomplete="off" maxlength="15">
                 <lavel for="number">選択肢の数</lavel>

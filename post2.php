@@ -58,7 +58,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/header.php');
 		$sum=1;
 		while($sum<=$num):
 		?>
-		<form action="end.php" method="post" enctype="multipart/form-data">
+		<form action="end.php" method="post" enctype="multipart/form-data" class="post">
 		
             <label>選択肢名<?php echo $sum ?>つ目</label>
 			<input type='hidden' name='num' value='<?php echo $num; ?>' >

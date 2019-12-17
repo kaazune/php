@@ -114,9 +114,9 @@ while ($row = $result->fetch_assoc()) {
                 <?php echo $sentaku_name; ?>
             </div>
             <span id="num" class="b-in2"><?php echo $vote; ?></span>
-            <!-- 画像 -->
-            <img src="<?php echo $img; ?>" >
+            
             <button id="<?php echo $sentaku_id; ?>" name="<?php echo $sentaku_name; ?>" class="button2">投票する</button>
+            <img src="<?php echo $img; ?>" >
         </div>
 
 <?php
