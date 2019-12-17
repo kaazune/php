@@ -2,7 +2,33 @@
     define("title", "Create Vote");
     include('config.php');
     require_once($_SERVER['DOCUMENT_ROOT'] . '/header.php');
-    
+
+    if(isset($_POST['out'])){
+        if(isset($_SESSION["NAME"])){
+            $errorMessage = "ログアウトが完了しました";
+            $_SESSION = array();
+            @session_destroy();
+?>         
+            <div class="outmes">
+                <p><?php echo htmlspecialchars($errorMessage, ENT_QUOTES); ?></p>
+            </div>
+<?php
+        } else {
+            $errorMessage = "セッションがタイムアウトしました";
+            $_SESSION = array();
+            @session_destroy();
+?>         
+            <div class="outmes">
+                <p><?php echo htmlspecialchars($errorMessage, ENT_QUOTES); ?></p>
+            </div>
+<?php
+        }
+    }
+
+
+
+
+
     $c1=0;
     $sql_list="select * from title";
     $stmt_list = array();
@@ -25,8 +51,8 @@
             <p>誰でもかんたんに投票がつくれる！<br>投票をみんなに共有して回答をチェック！</p>
         </div>
         <div class="wrapb">
-            <a href="post.php" class="button">投票作成 <i class="fas fa-pen"></i></a>
-            <a href="listvote.php" class="button">投票を探す <i class="fas fa-search"></i></a>
+            <a href="post.php" class="button3">投票作成<!--<i class="fas fa-pen"></i>--></a>
+            <a href="listvote.php" class="button3">投票を探す<!--<i class="fas fa-search"></i>--></a>
             </div>
         <div class="share"></div>
     </div>

@@ -1,7 +1,7 @@
 <?php
 
 include("config.php");
-define("title", "Login | Create Vote");
+define("title", "Log in | Create Vote");
 require_once($_SERVER['DOCUMENT_ROOT'] . '/header.php');
 $errorMessage = '';
 
@@ -9,7 +9,7 @@ $errorMessage = '';
 if (isset($_POST["login"])) {
     #ユーザの入力チェック
     if (empty($_POST["userid"])) {  #emptyは値が何も入っていないとき
-        $errorMessage = 'ユーザーIDが未入力です。';
+        $errorMessage = 'ユーザーネームが未入力です。';
     } else if (empty($_POST["password"])) {
         $errorMessage = 'パスワードが未入力です。';
     }
@@ -48,12 +48,12 @@ if (isset($_POST["login"])) {
                 
                 else {
                     #認証失敗
-                    $errorMessage = 'ユーザーIDあるいはパスワードに誤りがあります。';
+                    $errorMessage = 'ユーザーIDまたはパスワードが間違っています';
                 }
                 
             } else {
                 #該当データなし
-                $errorMessage = 'ユーザーIDあるいはパスワードに誤りがあります。';
+                $errorMessage = 'ユーザーIDまたはパスワードが間違っています';
             }
         } catch (PDOException $e) {
             $errorMessage = 'データベースエラー';
@@ -63,33 +63,30 @@ if (isset($_POST["login"])) {
 }
 ?>
 
-
-        <h1>LOGIN PAGE</h1>
-        <form id = "loginForm" name="loginForm" action="" method="post">
-            <fieldset>
-                <legend>LOGIN FORM</legend>
-                <div><font color="#ff0000"><?php echo htmlspecialchars($errorMessage, ENT_QUOTES); ?></font></div>
-                <label for = "userid">USER NAME</label>
-                <input type = "text" name="userid" placeholder="WRITE USER NAME" value="<?php if (!empty($_POST["username"])) {
+<div class="login center">
+        <h1>ログイン</h1>
+        <form id = "loginForm" name="loginForm" action="" method="post" class="login-form">
+            <div class="label">
+                <label for="userid">ユーザーネーム</label>
+                <input type = "text" id="userid" name="userid"value="<?php if (!empty($_POST["username"])) {
                 echo htmlspecialchars($_POST["username"], ENT_QUOTES);} ?>" autocomplete="off">
-                <br>
-                
-                <label for="password">PASSWORD</label>
-                <input type="password" id="password" name="password" value="" placeholder="WRITE PASSWORD" autocomplete="off">
-                <br>
-                
-                <input type="submit" id="login" name="login" value="LOGIN">
-            </fieldset>
+            </div>
+            
+            <div class="label">
+                <label for="password">パスワード</label>
+                <input type="password" id="password" name="password" value="" autocomplete="off">
+            </div>   
+               
+            <input type="submit" id="login" name="login" value="ログイン">
+            
+            <div class="error"><?php echo htmlspecialchars($errorMessage, ENT_QUOTES); ?></div>
         </form>
-        <br>
-        <form action="signup.php">
-            <fieldset>
-                <legend>SIGN UP</legend>
-                <input type="submit" value="新規登録">
-            </fieldset>
-        </form>
- 
- <?php
+        <div class="new">
+            <a href="signup.php">新規登録</a>
+        </div>
+</div>
+
+<?php
     require_once($_SERVER['DOCUMENT_ROOT'] . '/footer.php');
 ?>
 
