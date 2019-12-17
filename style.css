@@ -305,7 +305,6 @@ form {
     text-align: right;
     margin: 0 auto;
     justify-content: center;
-    font-family: "Sawarabi Gothic";
 }
 
 .parent {
@@ -314,29 +313,46 @@ form {
     margin: 0 auto;
 }
 
-.post input[type='text'] {
-    width: 366px;
-    padding: 5px;
+.post input[type='text'], .post input[type='tel'] {
     border: 2px solid #F75F6F;
     appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
     grid-column-start: 2;
     grid-column-end: 4;
     outline: 0;
+    width: 450px;
+    height: 40px;
+    font-size: 15px;
+    padding: 5px 10px;
+    outline: 0;
+    font-weight: 100;
+    box-sizing: border-box;
+    font-family: 'Montserrat', 'M+ Type-1 (general-j) Regular';
+    font-weight: 400;
 }
 
 textarea {
-    width: 366px;
+    width: 450px;
     height: 80px;
-    padding: 5px;
+    padding: 5px 10px;
     border: 2px solid #F75F6F;
     appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
     grid-column-start: 2;
     grid-column-end: 4;
     outline: 0;
+    box-sizing: border-box;
+    font-size: 15px;
+    font-family: 'Montserrat', 'M+ Type-1 (general-j) Regular';
+    font-weight: 400;
+}
+
+.post input[type="text"]:focus, textarea:focus, .post input[type="tel"]:focus {
+    border: solid 3px #F75F6F;
+}
+
+.post label {
+    font-size: 17px;
+    font-family: 'M+ Type-1 (general-j) Regular';
+    line-height: 40px;
 }
 
 input[type="submit"] {
@@ -490,7 +506,9 @@ input[type="submit"] {
 }
 
 .form1 input[type="text"]:focus {
-    background-color: white;
+    border-top: solid 3px #F75F6F;
+    border-bottom: solid 3px #F75F6F;
+    border-left: solid 3px #F75F6F;
 }
 
 .form1 input[type="submit"] {

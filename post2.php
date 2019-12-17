@@ -60,7 +60,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/header.php');
 		?>
 		<form action="end.php" method="post" enctype="multipart/form-data" class="post">
 		
-            <label>選択肢名<?php echo $sum ?>つ目</label>
+            <lavel>選択肢名<?php echo $sum ?>つ目</lavel>
 			<input type='hidden' name='num' value='<?php echo $num; ?>' >
 			<input type='hidden' name='title_id' value=' <?php echo $title_id; ?> ' >
 			<input type="text" name="<?php echo "sentaku_name".$sum; ?>"placeholder="20文字まで" required maxlength="20" autocomplete="off"> 
