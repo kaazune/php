@@ -40,6 +40,8 @@ $rand = range($min,$max);
 shuffle($rand);
 $rand = array_slice($rand,0,10);
 
+
+
 ?>
 
 
@@ -127,11 +129,26 @@ $rand = array_slice($rand,0,10);
                     <p>みんなの投票</p>
                 </div>
                 <div class="container">     
-                <?php for($i=0; $i<$c1; $i++){ ?>
-                    
+                <?php for($i=0; $i<$c1; $i++){ 
+                        //画像の処理
+                    $title_id=$stmt_list[$i]['id'];
+                    $query = "SELECT * FROM sentaku WHERE id=$title_id";
+                    $result = $mysqli->query($query) or die($mysqli->error);
+                
+                $c=0;
+                while ($row = $result->fetch_assoc()) {
+                    if( $row['img']==NULL){
+                            $img=NULL;
+	                        }else{
+	                            $img=$row['img'];
+	                            break;
+	                        }	                                             
+	               }
+                                  ?>
                     <input type='hidden' name='title_id' value=' <?php echo $i; ?> ' >
                     <div class="grid">
                         <button type="submit" name="submit_list<?php echo $i; ?>" value="投票を見る" class="grid-in">
+                            <span><img src="<?php echo $img; ?>"  width=100px></span>
                             <span class="bold2"><?php echo htmlspecialchars($stmt_list[$i]['title']); ?></span>
                             <span class="small2"><?php echo htmlspecialchars($stmt_list[$i]['detail']); ?></span>
                         </button>
