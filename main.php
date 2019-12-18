@@ -1,4 +1,5 @@
 <?php
+ob_start();
 include("config.php");
 define("title", "My page | Create Vote");
 require_once($_SERVER['DOCUMENT_ROOT'] . '/header.php');
@@ -6,7 +7,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/header.php');
 
 #login check!
 if(!isset($_SESSION["NAME"])){ #新規のセッションIDがなかったらログイン画面に移る
-    header("Location: login.php");
+    header("Location:login.php");
     exit;
 }
 

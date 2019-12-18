@@ -1,4 +1,5 @@
 <?php
+ob_start();
 include("config.php");
 
 #エラーメッセージ、登録完了メッセージの初期化
