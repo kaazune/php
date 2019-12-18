@@ -1,5 +1,4 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'] . '/header.php');
 include("config.php");
 
 #エラーメッセージ、登録完了メッセージの初期化
@@ -25,7 +24,7 @@ if (isset($_POST["signUp"])) {
         $p = $_POST["password"];
 
         #ユーザIDとパスワードが入力されていたら認証する
-        $dsn = sprintf('mysql: host=%s; dbname=%s; charset=utf8', $host, $dbname);
+        $dsn = sprintf('mysql:host=%s; dbname=%s; charset=utf8', $host, $dbname);
 
         #エラー処理
         try {
@@ -37,7 +36,7 @@ if (isset($_POST["signUp"])) {
             
             $userid = $pdo->lastinsertid(); 
             
-            header('Location: login.php');
+            header('Location:login.php');
             
         } catch (PDOException $e) {
             $errorMessage = 'データベースエラー';
@@ -48,6 +47,7 @@ if (isset($_POST["signUp"])) {
     }
     
 }
+require_once($_SERVER['DOCUMENT_ROOT'] . '/header.php');
 ?>
 
        

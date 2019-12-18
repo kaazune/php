@@ -19,7 +19,7 @@ if (isset($_POST["login"])) {
         $userid = $_POST["userid"];
 
         #ユーザIDとパスワードが入力されていたら認証する
-        $dsn = sprintf('mysql: host=%s; dbname=%s; charset=utf8', $host, $dbname);
+        $dsn = sprintf('mysql:host=%s; dbname=%s; charset=utf8', $host, $dbname);
         #エラー処理
         try {
             $pdo = new PDO($dsn, $username, $password, array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
