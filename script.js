@@ -27,3 +27,16 @@ $(".outmes:not(:animated)").fadeIn("slow",function(){
 $(".close").click(function() {
     $(".outmes").stop().fadeOut("slow");
 });   
+
+
+window.onload = function(){
+    document.getElementById("checkbox").onclick = function(){
+        if (this.checked) {
+            document.getElementById("pw").style.display = "block";
+            document.getElementById("pwlabel").style.display = "block";
+        }else{
+            document.getElementById("pw").style.display = "none";
+            document.getElementById("pwlabel").style.display = "none";
+        }
+    }
+}
