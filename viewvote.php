@@ -84,10 +84,6 @@ while($val = mysqli_fetch_assoc($result_title)){
 
 ?>
 
-
-
-
-
 <div class="center2">
 
     <div class="title">
