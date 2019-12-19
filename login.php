@@ -1,5 +1,5 @@
 <?php
-
+ob_start();
 include("config.php");
 define("title", "Log in | Create Vote");
 require_once($_SERVER['DOCUMENT_ROOT'] . '/header.php');
@@ -19,7 +19,7 @@ if (isset($_POST["login"])) {
         $userid = $_POST["userid"];
 
         #ユーザIDとパスワードが入力されていたら認証する
-        $dsn = sprintf('mysql: host=%s; dbname=%s; charset=utf8', $host, $dbname);
+        $dsn = sprintf('mysql:host=%s; dbname=%s; charset=utf8', $host, $dbname);
         #エラー処理
         try {
             $pdo = new PDO($dsn, $username, $password, array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
@@ -41,7 +41,7 @@ if (isset($_POST["login"])) {
                     }
                     $_SESSION["NAME"] = $row['name'];
                     $_SESSION["ID"]=$id;
-                    header("Location: main.php");  #メイン画面へ遷移
+                    header("Location:main.php");  #メイン画面へ遷移
                     exit();  #処理終了
                     #認証成功なら、セッションIDを新規に発行する
                 }
