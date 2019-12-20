@@ -9,8 +9,6 @@ include('config.php');
 define("title", "vote | Create Vote");
 require_once($_SERVER['DOCUMENT_ROOT'] . '/header.php');
 
-
-
 if(!empty($_POST['c1'])){
 	//listvote.phpから
 	$c1=intval($_POST['c1']);
@@ -83,12 +81,8 @@ while($val = mysqli_fetch_assoc($result_title)){
 	$title_view= $val['title'];
 	$detail_view=$val['detail'];
 }
+
 ?>
-
-
-
-
-
 
 <div class="center2">
 
@@ -123,12 +117,8 @@ while ($row = $result->fetch_assoc()) {
 
 <?php
 } // End of while
-
-        
-
 ?>
     
-
 
 <script type="text/javascript">
 $(function() {
