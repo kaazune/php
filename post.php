@@ -19,10 +19,16 @@ ini_set('display_errors',"On");
                 <lavel for="number">選択肢の数</lavel>
                 <input type="tel" name="num" required autocomplete="off" >
                 <lavel type="detail">投票の内容</lavel><textarea name="detail" placeholder="50文字まで" maxlength="50" ></textarea>
+                <!--
+                <lavel for="checkbox">パスワードをかける</lavel>
+                <input type="checkbox" id="checkbox" name="checkbox">
+                
+                <lavel for="pw" id="pwlabel">パスワード</lavel>
+                <input type="text" id="pw" name="pw" value="" autocomplete="off">
+                -->
 		        <input type="submit" name="submit_title" value="次へ" class="button" >
 		    </form>
         </div>
-		    
 
 <?php
     require_once($_SERVER['DOCUMENT_ROOT'] . '/footer.php');

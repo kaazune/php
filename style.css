@@ -330,6 +330,16 @@ form {
     font-weight: 400;
 }
 
+.post input[type="checkbox"] {
+    grid-column-start: 2;
+    grid-column-end: 4;
+    outline: 0;
+}
+
+#pw, #pwlabel {
+    display: none;
+}
+
 textarea {
     width: 450px;
     height: 80px;
@@ -792,6 +802,19 @@ label {
     font-family: 'M+ Type-1 (general-j) Bold';
     z-index: 10000;
 }
+
+
+
+
+/* pwinput */
+.pwinput {
+    width: 100vh;
+    height: 100vh;
+}
+
+
+
+
 
 /* footer */
 .foot {
